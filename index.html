@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Tarjeta AR - Jovany Garcia</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style> body { margin: 0; overflow: hidden; } </style>
+</head>
+<body>
+
+    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+        
+        <a-assets>
+            <img id="foto-perfil" src="assets/foto.jpg">
+        </a-assets>
+
+        <!-- CARA FRONTAL: MARCADOR HIRO -->
+        <a-marker preset="hiro">
+            
+            <!-- FONDO HOLOGRÁFICO (Panel translúcido oscuro) -->
+            <a-plane position="0 0.1 0" rotation="-90 0 0" width="3.8" height="2.2" 
+                     color="#0B0F19" opacity="0.90" 
+                     material="shader: flat;">
+            </a-plane>
+
+            <!-- LÍNEA DECORATIVA SUPERIOR (Cyan) -->
+            <a-plane position="0 0.11 -1.0" rotation="-90 0 0" width="3.8" height="0.04" 
+                     color="#00E5FF" material="shader: flat;">
+            </a-plane>
+
+            <!-- TU FOTO DE PERFIL -->
+            <a-image src="#foto-perfil" position="-1.2 0.12 -0.2" rotation="-90 0 0" width="1.0" height="1.0"></a-image>
+            
+            <!-- TÍTULO Y NOMBRE -->
+            <a-text value="JOVANY GARCIA SERRANO" 
+                    position="-0.5 0.12 -0.5" rotation="-90 0 0" 
+                    color="#FFFFFF" width="3.0" font="exo2bold" align="left">
+            </a-text>
+
+            <a-text value="Ingenieria en Computacion | UAZ" 
+                    position="-0.5 0.12 -0.3" rotation="-90 0 0" 
+                    color="#00E5FF" width="2.2" align="left">
+            </a-text>
+
+            <!-- DATOS DE CONTACTO ACTUALIZADOS -->
+            <a-text value="[+] Ubicacion: Guadalupe, Zacatecas\n[+] Tel: +52 675 104 45 08\n[+] Correo: garciaserranojovany@gmail.com\n[+] LinkedIn: linkedin.com/in/jovany-garcia-serrano" 
+                    position="-0.5 0.12 0.3" rotation="-90 0 0" 
+                    color="#E0E6ED" width="2.0" align="left" line-height="55">
+            </a-text>
+
+            <!-- LÍNEA DECORATIVA INFERIOR (Cyan) -->
+            <a-plane position="0 0.11 1.0" rotation="-90 0 0" width="3.8" height="0.04" 
+                     color="#00E5FF" material="shader: flat;">
+            </a-plane>
+
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+</body>
+</html>
